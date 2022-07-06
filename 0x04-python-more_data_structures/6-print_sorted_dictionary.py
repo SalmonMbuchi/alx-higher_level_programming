@@ -5,4 +5,4 @@ def print_sorted_dictionary(a_dictionary):
         value = a_dictionary[key]
         sorted_dict[key] = value
     for x, y in sorted_dict.items():
-        print(x, ':', y)
+        print(f"{x}: {y}")
