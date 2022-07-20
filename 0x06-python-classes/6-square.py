@@ -6,19 +6,22 @@
         size must be an integer, otherwise raise a TypeError
         if size is less than 0, raise a ValueError
 
-Instantiation with optional size: def __init__(self, size=0):
-Public instance method: def area(self): returns the square area
-Public instance method: def my_print(self): prints the square:
-    if size is equal to 0, print an empty line
+Private instance attribute: position:
+
+    property def position(self): to retrieve it
+    property setter def position(self, value): to set it:
+        position must be a tuple of 2 positive integers
 """
 
 
 class Square:
     """the Square class uses getter and setter methods"""
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         assert isinstance(size, int), f'size must be an integer'
         assert size >= 0, f'size must be >= 0'
+
         self.__size = size
+        self.__position = position
 
     @property
     def size(self):
@@ -31,6 +34,21 @@ class Square:
 
         self.__size = value
 
+    @property
+    def position(self):
+        return self.__position
+
+    @position.setter
+    def position(self, value):
+        if not (isinstance(value, tuple) or
+                isinstance(value[0], int) or
+                len(value) == 2 or
+                isinstance(value[1], int) or
+                value[1] >= 0 or value[1] >= 0):
+            raise TyperError("position must be a tuple of two integers")
+
+        self.__position = value
+
     def area(self):
         return self.__size * self.__size
 
@@ -39,6 +57,8 @@ class Square:
             print()
         else:
             for i in range(0, self.__size):
+                for k in range(0, self.__position[0]):
+                    print(' ', end="")
                 for j in range(0, self.__size):
                     print('#', end="")
                 print()
