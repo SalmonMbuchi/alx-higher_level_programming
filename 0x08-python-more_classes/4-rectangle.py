@@ -48,3 +48,18 @@ class Rectangle:
             return (0)
         else:
             return 2 * (self.__height + self.__width)
+
+    def __str__(self):
+        if self.__width and self.__height == 0:
+            return("")
+        else:
+            rect = []
+            for row in range(0, self.__height):
+                for col in range(0, self.__width):
+                    rect.append('#')
+                if row != self.__height - 1:
+                    rect.append('\n')
+            return("".join(rect))
+
+    def __repr__(self):
+        return f"Rectangle({self.__width}, {self.__height})"
