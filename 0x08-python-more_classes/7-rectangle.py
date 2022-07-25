@@ -19,7 +19,7 @@ class Rectangle:
             raise ValueError('height must be >= 0')
         self.__width = width
         self.__height = height
-        Rectangle.number_of_instances += 1
+        type(self).number_of_instances += 1
 
     @property
     def width(self):
@@ -61,7 +61,7 @@ class Rectangle:
             rect = []
             for row in range(0, self.__height):
                 for col in range(0, self.__width):
-                    rect.append(Rectangle.print_symbol)
+                    rect.append(str(self.print_symbol))
                 if row != self.__height - 1:
                     rect.append('\n')
             return("".join(rect))
@@ -71,4 +71,4 @@ class Rectangle:
 
     def __del__(self):
         print('Bye rectangle...')
-        Rectangle.number_of_instances -= 1
+        type(self).number_of_instances -= 1
