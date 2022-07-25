@@ -22,9 +22,9 @@ class Rectangle:
 
     @width.setter
     def width(self, value):
-        if not isinstance(self.__width, int):
+        if not isinstance(value, int):
             raise TypeError('width must be an integer')
-        if self.__width < 0:
+        if value < 0:
             raise ValueError('width must be >= 0')
         self.__width = value
 
@@ -34,9 +34,9 @@ class Rectangle:
 
     @height.setter
     def height(self, value):
-        if not isinstance(self.__height, int):
+        if not isinstance(value, int):
             raise TypeError('height must be an integer')
-        if self.__height < 0:
+        if value < 0:
             raise ValueError('height must be >= 0')
         self.__height = value
 
@@ -52,11 +52,10 @@ class Rectangle:
     def __str__(self):
         if self.__width and self.__height == 0:
             return("")
-        else:
-            rect = []
-            for row in range(0, self.__height):
-                for col in range(0, self.__width):
-                    rect.append('#')
-                if row != self.__height - 1:
-                    rect.append('\n')
-            return("".join(rect))
+        rect = []
+        for row in range(self.__height):
+            for col in range(self.__width):
+                rect.append('#')
+            if row != self.__height - 1:
+                rect.append('\n')
+        return("".join(rect))
