@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-
+"""define a locked class"""
 
 class LockedClass:
     """a class with no class or object attributes that prevents
