@@ -1,0 +1,31 @@
+"""test for 7-base_geometry.py"""
+
+"""import the class"""
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+""" create an instance """
+>>> bg = BaseGeometry()
+
+USAGE:
+>>> bg.integer_validator("my_int", 12)
+
+TESTS:
+
+>>> bg.integer_validator("name", "Harry")
+Traceback (most recent call last): 
+
+>>> bg.integer_validator("length", -4)
+Traceback (most recent call last):
+ValueError: {name} must be greater than 0
+
+>>> bg.integer_validator("distance", 0.5)
+Traceback (most recent call last):
+TypeError: {name} must be an integer
+
+>>> bg.integer_validator("count", 0)
+Traceback (most recent call last):
+ValueError: {name} must be greater than 0
+
+>>> bg.integer_validator("population:, [1, 3, 4, 5])
+Traceback (most recent call last):
+TypeError: {name} must be an integer
