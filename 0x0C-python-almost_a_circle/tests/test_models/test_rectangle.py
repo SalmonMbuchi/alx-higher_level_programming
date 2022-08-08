@@ -38,9 +38,6 @@ class TestRectangle(unittest.TestCase):
         """test height getter method"""
         self.assertEqual(self.a.height, 6)
         self.assertEqual(self.b.height, 5)
-    
-    def test_getter_x(self):
-        """test getter for x"""
-        self.assertEqual(self.a.
+
 if __name__ == '__main__':
     unittest.main()
