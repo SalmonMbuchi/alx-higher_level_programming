@@ -34,11 +34,13 @@ class Rectangle(Base):
     # getter for width
     @property
     def width(self):
+        """get the width"""
         return self.__width
 
     # setter for width
     @width.setter
     def width(self, value):
+        """set the width"""
         if type(value) != int:
             raise TypeError('width must be an integer')
         if value <= 0:
@@ -48,11 +50,13 @@ class Rectangle(Base):
     # getter for height
     @property
     def height(self):
+        """get the height"""
         return self.__height
 
     # setter for height
     @height.setter
     def height(self, value):
+        """get the height"""
         if type(value) != int:
             raise TypeError('height must be an integer')
         if value <= 0:
@@ -63,11 +67,13 @@ class Rectangle(Base):
     # getter for x
     @property
     def x(self):
+        """get value of x"""
         return self.__x
 
     # setter for x
     @x.setter
     def x(self, value):
+        """set the value of x"""
         if type(value) != int:
             raise TypeError('x must be an integer')
         if value < 0:
@@ -77,11 +83,13 @@ class Rectangle(Base):
     # getter for y
     @property
     def y(self):
+        """get the value of y"""
         return self.__y
 
     # setter for y
     @y.setter
     def y(self, value):
+        """set the value for y"""
         if type(value) != int:
             raise TypeError('y must be an integer')
         if value < 0:
@@ -104,8 +112,10 @@ class Rectangle(Base):
     # print out readable format of rectangle instance
     def __str__(self):
         """print readable format"""
-        return f'[Rectangle]({self.id}) {self.__x}/{(self.__y)}
-        - {(self.__width)}/{(self.__height)}'
+        return '[Rectangle]({}) {}/{() - {}/{}'.format(self.id, self.__x,
+                                                        self.__y,
+                                                        self.__width,
+                                                        self.__height)
 
     # update attributes via non-keyword arguments
     def update(self, *args):
