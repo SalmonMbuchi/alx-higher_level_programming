@@ -12,7 +12,7 @@ class Rectangle(Base):
         if type(width) != int:
             raise TypeError('width must be an integer')
         if type(height) != int:
-            raise TypeError('height must be an integer') 
+            raise TypeError('height must be an integer')
         if type(x) != int:
             raise TypeError('x must be an integer')
         if type(y) != int:
@@ -23,7 +23,7 @@ class Rectangle(Base):
             raise ValueError('height must be > 0')
         if x < 0:
             raise ValueError('x must be >= 0')
-        if y < 0:    
+        if y < 0:
             raise ValueError('y must be >= 0')
 
         self.__width = width
@@ -71,7 +71,7 @@ class Rectangle(Base):
         if type(value) != int:
             raise TypeError('x must be an integer')
         if value < 0:
-            raise ValueError('x must be >= 0') 
+            raise ValueError('x must be >= 0')
         self.__x = value
 
     # getter for y
@@ -85,7 +85,7 @@ class Rectangle(Base):
         if type(value) != int:
             raise TypeError('y must be an integer')
         if value < 0:
-            raise ValueError('y must be >= 0') 
+            raise ValueError('y must be >= 0')
         self.__y = value
 
     # public method to get the area
@@ -104,7 +104,8 @@ class Rectangle(Base):
     # print out readable format of rectangle instance
     def __str__(self):
         """print readable format"""
-        return f'[Rectangle] ({self.id}) {self.__x}/{(self.__y)} - {(self.__width)}/{(self.__height)}'
+        return f'[Rectangle]({self.id}) {self.__x}/{(self.__y)}
+        - {(self.__width)}/{(self.__height)}'
 
     # update attributes via non-keyword arguments
     def update(self, *args):
@@ -132,4 +133,5 @@ class Rectangle(Base):
 
     # return the dictionary representation of a Rectangle
     def to_dictionary(self):
-        return {'x': self.__x, 'y': self.__y, 'id': self.id, 'height': self.__height, 'width': self.__width} 
+        return {'x': self.__x, 'y': self.__y, 'id': self.id,
+                'height': self.__height, 'width': self.__width}
