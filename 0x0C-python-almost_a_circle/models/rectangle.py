@@ -109,14 +109,6 @@ class Rectangle(Base):
                 print('#', end='')
             print()
 
-    # print out readable format of rectangle instance
-    def __str__(self):
-        """print readable format"""
-        return '[Rectangle]({}) {}/{() - {}/{}'.format(self.id, self.__x,
-                                                        self.__y,
-                                                        self.__width,
-                                                        self.__height)
-
     # update attributes via non-keyword arguments
     def update(self, *args):
         """update rectangle instance"""
@@ -145,3 +137,11 @@ class Rectangle(Base):
     def to_dictionary(self):
         return {'x': self.__x, 'y': self.__y, 'id': self.id,
                 'height': self.__height, 'width': self.__width}
+
+    # print out readable format of rectangle instance
+    def __str__(self):
+        """print readable format"""
+        return '[Rectangle]({}) {}/{() - {}/{}' .format(self.id,
+                                                        self.__y,
+                                                        self.__width,
+                                                        self.__height)
