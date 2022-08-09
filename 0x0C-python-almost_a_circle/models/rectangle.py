@@ -142,6 +142,7 @@ class Rectangle(Base):
     # print out readable format of rectangle instance
     def __str__(self):
         """print readable format"""
-        return '[Rectangle]({}) {}/{} - {}/{}' . format(self.id, self.__x,
-                                                        self.__y, self.__width,
-                                                        self.__height)
+        return '[Rectangle] ({}) {}/{} - {}/{}' . format(self.id, self.__x,
+                                                         self.__y,
+                                                         self.__width,
+                                                         self.__height)
