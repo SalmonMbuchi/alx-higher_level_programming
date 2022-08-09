@@ -104,7 +104,13 @@ class Rectangle(Base):
     # print the rectangle instance to stdout
     def display(self):
         """print instance using #"""
+        if self.__width == 0 or self.__height == 0:
+            print("")
+            return
+        [print("") for y in range(self.__y)]
         for row in range(self.__height):
+            for x in range(self.__x):
+                print(" ", end="")
             for col in range(self.__width):
                 print('#', end='')
             print()
