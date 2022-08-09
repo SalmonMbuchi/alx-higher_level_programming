@@ -35,9 +35,11 @@ class Base:
                 f.write(Base.to_json_string(list_objs))
 
     @staticmethod
-    def from_fson_string(json_string):
+    def from_json_string(json_string):
         """returns the list of JSON string representation"""
-        if json_string is None and json_string == []:
+        if json_string is None:
+            return '[]'
+        if json_string == []:
             return '[]'
         else:
             return json.loads(json_string)
