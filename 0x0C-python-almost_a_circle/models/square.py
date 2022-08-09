@@ -46,20 +46,20 @@ class Square(Rectangle):
             for arg in args:
                 if i == 0:
                     self.id = arg
-                if i == 1:
+                elif i == 1:
                     self.size = arg
-                if i == 2:
+                elif i == 2:
                     self.__x = arg
-                if i == 3:
+                elif i == 3:
                     self.__y = arg
                 i += 1
         elif kwargs and len(kwargs) != 0:
             for k, v in kwargs.items():
                 if k == "id":
                     self.id = v
-                if k == "size":
+                elif k == "size":
                     self.size = v
-                if k == "x":
+                elif k == "x":
                     self.__x = v
-                if k == "y":
+                elif k == "y":
                     self.__y = v
