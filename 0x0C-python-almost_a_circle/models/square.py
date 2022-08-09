@@ -38,3 +38,29 @@ class Square(Rectangle):
         """return dictionary representation of a square"""
         return {'id': self.id, 'x': self.__x,
                 'size': self.__width, 'y': self.__y}
+
+    def update(self, *args, **kwargs):
+        """assign attributes using args and kwargs"""
+        i = 0
+        if args and len(args) != 0:
+            for arg in args:
+                if i == 0:
+                    self.id = arg
+                if i == 1:
+                    self.__width = arg
+                    self.__height = arg
+                if i == 2:
+                    self.__x = arg
+                if i == 3:
+                    self.__y = arg
+                i += 1
+        elif kwargs and len(kwargs) != 0:
+            for k, v in kwargs.items():
+                if k == "id":
+                    self.id = v
+                if k == "size":
+                    self.size = v
+                if k == "x":
+                    self.__x = v
+                if k == "y":
+                    self.__y = v
