@@ -48,21 +48,25 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """returns an instance with all attributes set"""
+        new = None
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
                 new = cls(1, 1)
             else:
                 new = cls(1)
-            new.update(**dictionary)
+            cls.update(new, **dictionary)
             return new
 
     @classmethod
     def load_from_file(cls):
         """return a list of class instantiated from a JSON file"""
         filename = str(cls.__name__) + ".json"
+        new_list = []
         try:
-            with open(filename, "r") as jsonfile:
-                list_dict = Base.from_json_string(jsonfile.read())
-                return [cls.create(**d) for d in list_dicts]
-        except IOError:
-            return []
+            with open(filename, "r", encoding="utf-8") as jsonfile:
+                list_dict = cls.from_json_string(jsonfile.read())
+                for o in list_dict:
+                    new_list.append(cls.create(**o))
+        except Exception:
+            pass
+        return new_list
