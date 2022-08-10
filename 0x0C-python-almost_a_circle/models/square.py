@@ -42,7 +42,7 @@ class Square(Rectangle):
     def update(self, *args, **kwargs):
         """assign attributes using args and kwargs"""
         i = 0
-        if args and len(args) != 0:
+        if len(args) != 0:
             for arg in args:
                 if i == 0:
                     self.id = arg
@@ -53,7 +53,7 @@ class Square(Rectangle):
                 elif i == 3:
                     self.__y = arg
                 i += 1
-        elif kwargs and len(kwargs) != 0:
+        elif len(kwargs) != 0:
             for k, v in kwargs.items():
                 if k == "id":
                     self.id = v
