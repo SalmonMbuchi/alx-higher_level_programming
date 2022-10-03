@@ -12,6 +12,6 @@ if (args.length < 3 || !parseInt(args[2])) {
     for (let j = 0; j < args[2]; j++) {
       row += 'X';
     }
-    console.log(row + ' ');
+    console.log(row);
   }
 }
