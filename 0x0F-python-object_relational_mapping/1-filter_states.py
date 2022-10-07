@@ -8,8 +8,8 @@ if __name__ == "__main__":
                            passwd=sys.argv[2], db=sys.argv[3])
     cur = conn.cursor()
     cur.execute(
-        "SELECT DISTINCT id, name FROM states"
-        "WHERE name LIKE 'N%' ORDER BY id ASC")
+        "SELECT DISTINCT id, name FROM states \
+        WHERE name LIKE 'N%' ORDER BY id ASC")
     states = cur.fetchall()
     for state in states:
         print(state)
