@@ -3,6 +3,7 @@
 
 
 import MySQLdb
+"""connect to database, list states and close the connection"""
 conn = MySQLdb.connect(host="localhost", port=3306, user="root",
                        passwd="password", db="hbtn_0e_0_usa")
 cur = conn.cursor()
