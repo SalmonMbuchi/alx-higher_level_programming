@@ -1,16 +1,16 @@
 #!/usr/bin/python3
-"""prints the first State object"""
+"""print the first State object"""
 import sys
 from model_state import Base, State
-from sqlalchemy import create_engine, select
-
-engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
-    sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 if __name__ == "__main__":
-    conn = engine.connect()
-    s = select([State])
-    r = conn.execute(s)
-    if State is None:
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format(
+        sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True)
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    obj = session.query(State).order_by(State.id).first()
+    if obj is None:
         print('Nothing')
-    print(r.first())
+    print(f"{obj.id}: {obj.name}")
