@@ -12,8 +12,8 @@ if __name__ == "__main__":
     session = Session()
     found = False
     for state in session.query(State):
-        if State.name == sys.argv[4]:
-            print(f"{State.id}")
+        if state.name == sys.argv[4]:
+            print(f"{state.id}")
             found = True
             break
     if found is False:
