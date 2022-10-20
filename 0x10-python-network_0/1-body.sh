@@ -1,3 +1,3 @@
 #!/bin/bash
 # Display 200 status code response
-curl -s -X GET "$1"
+curl -s -o /dev/null -w http_code "$1"

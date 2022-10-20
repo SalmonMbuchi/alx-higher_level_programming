@@ -1,3 +1,3 @@
 #!/bin/bash
 # Display all HTTP methods the server accepts
-curl -s "$1" -X OPTIONS 
+curl -is -X OPTIONS "$1" | grep -Pio 'Allow:\s\K.*' 
