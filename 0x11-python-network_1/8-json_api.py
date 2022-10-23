@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """ Send JSON data using post request """
 import requests
-from requests.exceptions import JSONDecodeError
 import sys
 
 if __name__ == "__main__":
@@ -13,11 +12,12 @@ if __name__ == "__main__":
     else:
         payload = {'q': ""}
     response = requests.post(
-        'http: // 0.0.0.0: 5000/search_user', json=payload)
-    try:
-        data = response.json()
-        if response.status_code == 204:
-            print("No result")
-        print(f"{data.get('id')} {data.get('name')}")
-    except JSONDecodeError:
+        'http://0.0.0.0:5000/search_user', data=payload)
+    data = response.json()
+    if not type(data) == dict:
         print("Not a valid JSON")
+    elif data == {}:
+        print("No result")
+    else:
+        print(f"[{data.get('id')}] {data.get('name')}")
+
