@@ -14,7 +14,7 @@ if __name__ == "__main__":
     response = requests.post(
         'http://0.0.0.0:5000/search_user', data=payload)
     data = response.json()
-    if not type(data) == dict:
+    if type(data) not in [dict]:
         print("Not a valid JSON")
     elif data == {}:
         print("No result")
