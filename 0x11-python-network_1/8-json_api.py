@@ -16,7 +16,7 @@ if __name__ == "__main__":
     data = response.json()
     if type(data) not in [dict]:
         print("Not a valid JSON")
-    elif data == {}:
+    elif len(data) == 0:
         print("No result")
     else:
         print(f"[{data.get('id')}] {data.get('name')}")
