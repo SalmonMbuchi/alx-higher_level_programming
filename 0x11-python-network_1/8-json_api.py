@@ -20,4 +20,3 @@ if __name__ == "__main__":
         print("No result")
     else:
         print(f"[{data.get('id')}] {data.get('name')}")
-
