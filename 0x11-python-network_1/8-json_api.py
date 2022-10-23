@@ -13,10 +13,11 @@ if __name__ == "__main__":
         payload = {'q': ""}
     response = requests.post(
         'http://0.0.0.0:5000/search_user', data=payload)
-    data = response.json()
-    if type(data) not in [dict]:
+    try:
+        data = response.json()
+        if data == {}:
+            print("No result")
+        else:
+            print(f"[{data.get('id')}] {data.get('name')}")
+    except ValueError:
         print("Not a valid JSON")
-    elif len(data) == 0:
-        print("No result")
-    else:
-        print(f"[{data.get('id')}] {data.get('name')}")
