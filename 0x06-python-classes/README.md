@@ -1,34 +1,98 @@
-# OBJECT ORIENTED PROGRAMMING
+# Python - Classes and Objects
 
+In this project, I began practicing object-oriented programming using
+classes and objects in Python. I learned about attributes, methods, and
+properties as well as data abstraction, data encapsulation, and information
+hiding.
 
-Object Oriented programming (OOP) is a programming paradigm that relies on the concept of classes and objects. It is used to structure a software program into simple, reusable pieces of code blueprints (usually called classes), which are used to create individual instances of objects. There are many object-oriented programming languages including JavaScript, C++, Java, and Python.
+## Tasks :page_with_curl:
 
-A class is an abstract blueprint used to create more specific, concrete objects. Classes often represent broad categories, like Car or Dog that share attributes. These classes define what attributes an instance of this type will have, like color, but not the value of those attributes for a specific object.
+* **0. My first square**
+  * [0-square.py](./0-square.py): Python class `Square` that defines a square.
 
-Classes can also contain functions, called methods available only to objects of that type. These functions are defined within the class and perform some action helpful to that specific type of object.
+* **1. Square with size**
+  * [1-square.py](./1-square.py): Python class `Square` that defines a square. Builds on
+  [0-square.py](./0-square.py) with:
+    * Private instance attribute `size`.
+    * Instantiation with `size`.
 
-## BENEFITS OF OOP
+* **2. Size validation**
+  * [2-square.py](./2-square.py): Python class `Square` that defines a square. Builds on
+  [1-square.py](./1-square.py) with:
+    * Instantiation with optional `size`: `def __init__(self, size=0):`
+  * If a provided `size` attribute is not an integer, a `TypeError` exception
+  is raised with the message `must be an integer`.
+  * If a provided `size` attribute is less than `0`, a `ValueError` exception
+  is raised with the message `size must be >= 0`.
 
-    1. OOP models complex things as reproducible, simple structures
-    2. Reusable, OOP objects can be used across programs
-    3. Allows for class-specific behavior through polymorphism
-    4. Easier to debug, classes often contain all applicable information to them
-    5. Secure, protects information through encapsulation
+* **3. Area of a square**
+  * [3-square.py](./3-square.py): Python class `Square` that defines a square. Builds on
+  [2-square.py](./2-square.py) with:
+    * Public instance attribute `def area(self):` that returns the current
+    square area.
 
-**Object**
+* **4. Access and update private attribute**
+  * [4-square.py](./4-square.py): Python class `Square` that defines a square. Builds on
+  [3-square.py](./3-square.py) with:
+    * Property `def size(self):` to retrieve the private instance
+    attribute `self`.
+    * Property setter `def size(self, value):` to set `self`.
 
-This is the basic unit of object-oriented programming. That is both data and function that operate on data are bundled as a unit called an object.
+* **5. Printing a square**
+  * [5-square.py](./5-square.py): Python class `Square` that defines a square. Builds on
+  [4-square.py](./4-square.py) with:
+    * Public instance method `def my_print(self):` that prints the square
+    with the character `#` to standard output (if `size` == 0 -> prints an empty
+    line).
 
-**Class**
+* **6. Coordinates of a square**
+  * [6-square.py](./6-square.py): Python class `Square` that defines a square. Builds on
+  [5-square.py](./5-square.py) with:
+    * Private instance attribute `position`.
+    * Property `def position(self):` to retreive `position`.
+    * Property setter `def position(self, value):` to set `position`.
+    * Instantiation with optional `size` and `position`:
+    `def __init__(self, size=0, position=(0, 0)):`
+  * If a provided `position` attribute is not a tuple of two integers, a
+  `TypeError` exception is raised with the message `position must be a tuple of
+  2 positive integers`.
 
-When you define a class, you define a blueprint for an object. This doesn't actually define any data, but it does define what the class name means, that is, what an object of the class will consist of and what operations can be performed on such an object.
+* **7. Singly linked list**
+  * [100-singly_linked_list.py](./100-singly_linked_list.py): Python classes `Node`
+  and `SinglyLinkedList` that define a node of a singly-linked list and a singly-linked
+  list. The class `Node` is defined with:
+    * Private instance attribute `data`.
+    * Property `def data(self):` to set `data`.
+    * Property setter `def data(self, value):` to set `data`.
+    * Private instance attribute `next_node`.
+    * Property `def next_node(self):` to set `next_node`.
+    * Property `def next_node(self, value):` to set `next_node`.
+    * Instantiation with `data` and `next_node`:
+    `def __init__(self, data, next_node=None):`
+  * If a provided `data` attribute is not an integer, a `TypeError`
+  exception is raised with the message `data must be an integer`.
+  * If a provided `next_node` attribute is not a `Node` or `None`, a
+  `TypeError` exception is raised with the message `next_node must be a
+  Node object`.
+  * The class `SinglyLinkedList` is defined with:
+    * Private instance attribute `head`.
+    * Instantiation `def __init__(self):`
+    * Public instance method `def sorted_insert(self, value):` that inserts a
+    new `Node` into the correct sorted position in the list increasing order).
 
-OOP has four basic concepts on which it is totally based. Let's have a look at them individually −
+* **8. Print Square instance**
+  * [101-square.py](./101-square.py): Python class `Square` that defines a square. Builds on
+  [6-square.py](./6-square.py) with:
+    * Method `__str__` to set printing of a `Square` instance equivalent to
+    `my_print()`.
 
-     1. **Abstraction** − It refers to, providing only essential information to the outside world and hiding their background details. For example, a web server hides how it processes data it receives, the end user just hits the endpoints and gets the data back.
-     
-     2. **Encapsulation** − Encapsulation is a process of binding data members (variables, properties) and member functions (methods) into a single unit. It is also a way of restricting access to certain properties or component. The best example for encapsulation is a class.
-     
-     3. **Inheritance** − The ability to create a new class from an existing class is called Inheritance. Using inheritance, we can create a Child class from a Parent class such that it inherits the properties and methods of the parent class and can have its own additional properties and methods. For example, if we have a class Vehicle that has properties like Color, Price, etc, we can create 2 classes like Bike and Car from it that have those 2 properties and additional properties that are specialized for them like a car has numberOfWindows while a bike cannot. Same is applicable to methods.
-     
-     4. **Polymorphism** − The word polymorphism means having many forms. Typically, polymorphism occurs when there is a hierarchy of classes and they are related by inheritance. C++ polymorphism means that a call to a member function will cause a different function to be executed depending on the type of object that invokes the function.
+* **9. Compare 2 squares**
+  * [102-square.py](./102-square.py): Python class `Square` that defines a square. Builds on
+  [101-square.py](./101-square.py) with:
+    * Methods `__eq__`, `__ne__`, `__lt__`, `__le__`, `__gt__`, and `__ge__`,
+    to enable usage of `Square` instances with logical operators `==`, `!=`, `<`,
+    `<=`, `>`, and `>=`, respectively, based on the square area.
+
+* **10. ByteCode -> Python #5**
+  * [103-magic_class.py](./103-magic_class.py): Python function matching exactly a bytecode
+  provided by Holberton School.
